@@ -4,6 +4,8 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
     }
 });
 
+new ClipboardJS('.btn');
+
 function errorHandler(msg) {
     var message = document.querySelector('#message');
     message.innerText = msg;
@@ -18,7 +20,7 @@ function createMarkupForAttributes(componentList) {
     if (componentList && componentList.length > 0) {
         var componentListMarkup = '<ul>';
         componentList.map(function (component, index) {
-            componentListMarkup += `<li> <span> ${index + 1}. ${component.type} - ${ (document.getElementsByClassName(component.type) ? "<span class='ssr-success'>&#10004;</span>": "<span class='ssr-fail'>✘</span>" )} </span> <textarea>${JSON.stringify(component)}</textarea> </li>`;
+            componentListMarkup += `<li> <span> ${index + 1}. ${component.type} - ${ (document.getElementsByClassName(component.type) ? "<span class='ssr-success'>&#10004;</span>": "<span class='ssr-fail'>✘</span>" )} </span> <button class="btn" data-clipboard-target="#component-json-${index}"> Copy </button><span>  </span> <textarea id="component-json-${index}">${JSON.stringify(component)}</textarea> </li>`;
         });
         componentListMarkup += '</ul>'
         successHandler(componentListMarkup);

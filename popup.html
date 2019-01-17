@@ -52,7 +52,7 @@
             display: block;
             width: 100%;	
             border: none;
-            border-radius: 20px;
+            border-radius: 2px;
             outline: none;
             padding: 10px;
             font-family: 'Sniglet', cursive;
@@ -79,14 +79,26 @@
         li:nth-child(odd) {
             background-color: #86c8cc;
         }
+        footer{
+            padding-bottom: 10px;
+            width: 100%;
+            text-align: right;
+        }
+        footer span{
+            font-size: 10px;
+            margin-right: 20px;
+        }
     </style>
 </head>
 
 <body>
-    <h1>Carnival JSON</h1>
+    <h1>Dragon Grabber</h1>
     <ul id='results'></ul>
     <p id='message'></p>
+    <footer> 
+        <span> Created by <a href="https://github.com/iamparthaonline/Chrome-Extension-for-getting-component-JSONs-for-AEM-React-Project" target="_blank">PR</a></span>
+    </footer>
 </body>
+<script src="clipboard.min.js"></script>
 <script src='popup.js'></script>
-
 </html>
